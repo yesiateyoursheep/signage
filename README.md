@@ -1,2 +1,1 @@
-# signage
-WEB601 Project
+﻿﻿﻿﻿# Signage Proof of ConceptThis was written in python and vanilla JS, in order to run the server, you need Python <=3.5 and `pip install -r requirements.txt`. However the server isn't really required.
