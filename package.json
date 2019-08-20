@@ -1,0 +1,28 @@
+{
+  "name": "signage",
+  "version": "1.0.0",
+  "description": "Web601 Assessment Project - signage for a touchscreen kiosk device, connects to a database and shows the latest activity.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yesiateyoursheep/signage.git"
+  },
+  "keywords": [
+    "signage",
+    "node",
+    "react"
+  ],
+  "author": "yesiateyoursheep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yesiateyoursheep/signage/issues"
+  },
+  "homepage": "https://github.com/yesiateyoursheep/signage#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^16.9.0"
+  }
+}
