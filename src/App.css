@@ -1,0 +1,44 @@
+html{
+  overflow-y:hidden;
+  overflow-x:show;
+}
+body{
+  width:500%;
+}
+#root{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500%;
+  height: 100%;
+  z-index: 1;
+}
+.page{
+  box-sizing: border-box;
+  display: inline-block;
+  width:20%;
+  height:100%;
+  padding:0;
+  margin:0;
+}
+.page:nth-child(even){
+  background:rgba(255,255,255,0.2);
+}
+/*.page.two{
+  background:rgba(128,255,0,0.2);
+}
+.page.three{
+  background:rgba(0,255,128,0,0.2);
+}
+.page.four{
+  background: rgba(0,128,255,0.2);
+}
+.page.five{
+  background: rgba(128,0,255,0.2);
+}
+.page.six{
+  background: rgba(255,0,128,0.2);
+}
+.page.seven{
+  background: rgba(128,255,128,0.2);
+}*/
