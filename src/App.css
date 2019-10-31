@@ -9,36 +9,67 @@ body{
   position: absolute;
   top: 0;
   left: 0;
-  width: 500%;
+  /*width: 500%;*/
   height: 100%;
   z-index: 1;
 }
 .page{
   box-sizing: border-box;
-  display: inline-block;
-  width:20%;
-  height:100%;
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width:100vw;
+  height:100vh;
   padding:0;
   margin:0;
 }
 .page:nth-child(even){
   background:rgba(255,255,255,0.2);
 }
-/*.page.two{
+.page.two{
+  top:-100vh;
+  left:100vw;
   background:rgba(128,255,0,0.2);
 }
 .page.three{
+  top:-200vh;
+  left:200vw;
   background:rgba(0,255,128,0,0.2);
 }
 .page.four{
+  top:-300vh;
+  left:300vw;
   background: rgba(0,128,255,0.2);
 }
 .page.five{
+  top:-400vh;
+  left:400vw;
   background: rgba(128,0,255,0.2);
 }
 .page.six{
+  top:-500vh;
+  left:500vw;
   background: rgba(255,0,128,0.2);
 }
 .page.seven{
+  top:-600vh;
+  left:600vw;
   background: rgba(128,255,128,0.2);
-}*/
+}
+
+.time{
+  position: absolute;
+  bottom:0;
+  font-size:20vh;
+  font-weight:600;
+  color:#fff;
+  text-shadow: rgba(0,0,0,0.3) 0.1rem 0.1rem;
+}
+.time>.min{
+  font-weight: 400;
+}
+.time>.sec{
+  font-weight:300;
+  opacity: 0.5;
+}
