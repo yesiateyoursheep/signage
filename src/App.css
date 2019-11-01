@@ -73,3 +73,42 @@ body{
   font-weight:300;
   opacity: 0.5;
 }
+
+.page.two .time, .page.four .time{
+  bottom:4vh;
+  left:0;
+  right:0;
+  text-align: center;
+}
+.page.four .time{
+  font-size: 15vh;
+}
+
+.clock{
+  width:50vh;
+  height:50vh;
+  position: absolute;
+  bottom:25vh;
+  left:50%;
+  transform: translate(-50%,0);
+  background:url('https://upload.wikimedia.org/wikipedia/commons/5/52/Horlo%C4%9Do_002.svg') rgba(255,255,255,0.2);
+  background-size:50vh;
+  border-radius: 50%;
+}
+.clock > div{
+  width:50vh;
+  height:50vh;
+  position: absolute;
+  top:0;
+  left:0;
+  background-size:50vh;
+}
+.clock > .hour{
+  background:url('/svg/hand-01.svg');
+}
+.clock > .minute{
+  background:url('/svg/hand-02.svg');
+}
+.clock > .second{
+  background:url('/svg/hand-03.svg');
+}

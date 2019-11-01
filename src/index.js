@@ -13,6 +13,7 @@ class Time extends React.Component{
 			min:new Date().getMinutes(),
 			sec:new Date().getSeconds()
 		}
+		if(this.state.hour>12) this.setState({hour:this.state.hour-12});
 
 		setInterval(()=>{
 			this.setState({
@@ -20,6 +21,7 @@ class Time extends React.Component{
 				min:new Date().getMinutes(),
 				sec:new Date().getSeconds()
 			})
+			if(this.state.hour>12) this.setState({hour:this.state.hour-12});
 		},1000)
 	}
 
@@ -39,43 +41,72 @@ class Time extends React.Component{
 	}
 }
 
+class AnalogClock extends Time{
+	render(){
+		return(
+			<article className="clock">
+				<div className="hour" style={{transform:"rotate("+(this.state.hour/12*360).toString()+"deg)"}}>
+				</div>
+				<div className="minute" style={{transform:"rotate("+(this.state.min/60*360).toString()+"deg)"}}>
+				</div>
+				<div className="second" style={{transform:"rotate("+(this.state.sec/60*360).toString()+"deg)"}}>
+				</div>
+			</article>
+		)
+	}
+}
+
 function One() {
 	return (
 		<div>
-			Page 1
+			<span className="name">Summary</span>
 			<Time/>
 		</div>
 	);
 }
 function Two() {
 	return (
-		<div>Page 2
-		<Time/></div>
+		<div>
+			<span className="name">Weather</span>
+			<Time/>
+		</div>
 	);
 }
 function Three() {
 	return (
-		<div>Page 3</div>
+		<div>
+			<span className="name">MemeDB</span>
+		</div>
 	);
 }
 function Four(){
 	return(
-		<div>Page 4</div>
+		<div>
+			<span className="name">Clock</span>
+			<AnalogClock/>
+			<Time/>
+		</div>
 	);
 }
 function Five(){
 	return(
-		<div>Page 5</div>
+		<div>
+			<span className="name">User1</span>
+		</div>
 	);
 }
 function Six(){
 	return(
-		<div>Page 6</div>
+		<div>
+			<span className="name">User2</span>
+		</div>
 	);
 }
 function Seven(){
 	return(
-		<div>Page 7</div>
+		<div>
+			<span className="name">User3</span>
+		</div>
 	);
 }
 
