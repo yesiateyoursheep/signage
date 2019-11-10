@@ -1,18 +1,85 @@
 html{
-  overflow-y:hidden;
-  overflow-x:show;
+  overflow:hidden;
 }
 body{
-  width:500%;
+  width:700%;
+  font-family: Arial, Helvetica, sans-serif;
 }
 #root{
   position: absolute;
   top: 0;
   left: 0;
-  /*width: 500%;*/
   height: 100%;
   z-index: 1;
 }
+#pagination{
+  z-index: 1000;
+  position: fixed;
+  bottom:0;
+  left:50%;
+  width:14em;
+  height:2em;
+  transform: translateX(-50%);
+}
+#pagination>span{
+  display:inline-block;
+  width:1em;
+  height:1em;
+  margin:0.5em;
+  border: #fff solid 0.1em;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.2;
+  transition: opacity 125ms;
+}
+#pagination.idle>span:not(.active){
+  opacity: 0;
+}
+#pagination>span.active{
+  background:#fff;
+  opacity:0.5;
+}
+#pagination>span:hover{
+  opacity: 1;
+}
+#pagination>span::after{
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 125ms;
+  color:#fff;
+  padding:0.5em;
+  background:#334;
+  box-shadow: rgba(0,0,0,0.25) 0 0.1em 0.2em;
+  border-radius: 0.5em;
+  position: relative;
+  bottom:2.5em;
+  left:-1.2em;
+}
+#pagination>span:hover::after{
+  opacity: 1;
+}
+#pagination>.one::after{
+  content:"Summary";
+}
+#pagination>.two::after{
+  content:"Weather";
+}
+#pagination>.three::after{
+  content:"MemeDB";
+}
+#pagination>.four::after{
+  content:"Clock";
+}
+#pagination>.five::after{
+  content:"User1";
+}
+#pagination>.six::after{
+  content:"User2";
+}
+#pagination>.seven::after{
+  content:"User3";
+}
+
 .page{
   box-sizing: border-box;
   display: block;
@@ -30,32 +97,26 @@ body{
 .page.two{
   top:-100vh;
   left:100vw;
-  background:rgba(128,255,0,0.2);
 }
 .page.three{
   top:-200vh;
   left:200vw;
-  background:rgba(0,255,128,0,0.2);
 }
 .page.four{
   top:-300vh;
   left:300vw;
-  background: rgba(0,128,255,0.2);
 }
 .page.five{
   top:-400vh;
   left:400vw;
-  background: rgba(128,0,255,0.2);
 }
 .page.six{
   top:-500vh;
   left:500vw;
-  background: rgba(255,0,128,0.2);
 }
 .page.seven{
   top:-600vh;
   left:600vw;
-  background: rgba(128,255,128,0.2);
 }
 
 .time{
@@ -85,19 +146,19 @@ body{
 }
 
 .clock{
-  width:50vh;
-  height:50vh;
+  width:60vh;
+  height:60vh;
   position: absolute;
   bottom:25vh;
   left:50%;
   transform: translate(-50%,0);
   background:url('https://upload.wikimedia.org/wikipedia/commons/5/52/Horlo%C4%9Do_002.svg') rgba(255,255,255,0.2);
-  background-size:50vh;
+  background-size:60vh;
   border-radius: 50%;
 }
 .clock > div{
-  width:50vh;
-  height:50vh;
+  width:60vh;
+  height:60vh;
   position: absolute;
   top:0;
   left:0;
@@ -111,4 +172,22 @@ body{
 }
 .clock > .second{
   background:url('/svg/hand-03.svg');
+}
+
+.panel{
+  position: absolute;
+  top:1em;
+  right:1em;
+  padding:1em;
+  background:#ccc;
+  border-radius: 1em;
+  box-shadow: rgba(0,0,0,0.25) 0 0.1em 0.2em;
+  width: 20em;
+  max-width: 60vw;
+}
+.panel h3{
+  margin:0;
+}
+.panel br{
+  
 }
