@@ -158,6 +158,49 @@ class LatestMemes extends React.Component{
 	}
 }
 
+class Weather extends React.Component{
+	constructor(){
+		super();
+		this.state = {
+			hourly: {},
+			loading: true,
+			error: false
+		}
+	}
+
+	componentDidMount(){
+		fetch("https://api.openweathermap.org/data/2.5/forecast?q=Nelson,nz&appid=71e65618a80b5c3d419b2ac804582791")
+		.then(response => response.json())
+		.then(data => {this.setState({hourly: data.list, loading: false}); })
+		.catch(error => this.setState({error, loading: false}));
+	}
+
+	WeatherCard(props){
+		if(props.hourly.length>0){
+			var result = [];
+			props.hourly.map(weather => {
+				result.push(
+					<div key={weather.dt} className="card">
+						<img src={"/svg/Weather/"+weather.weather[0].main+".svg"} alt={weather.weather[0].main}/>
+					</div>
+				)
+				return null;
+			});
+			return result;
+		}else{
+			return null;
+		}
+	}
+
+	render(){
+		return(
+			<section className="weather">
+				<this.WeatherCard hourly={this.state.hourly}/>
+			</section>
+		);
+	}
+}
+
 function One() {
 	return (
 		<div>
@@ -172,6 +215,7 @@ function Two() {
 		<div>
 			<span className="name"></span>
 			<Time/>
+			<Weather/>
 		</div>
 	);
 }

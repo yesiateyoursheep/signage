@@ -191,3 +191,18 @@ body{
 .panel br{
   
 }
+.panel .meme{
+  max-height:20vh;
+}
+.panel .meme img, .panel .meme video, .panel .meme iframe{
+  max-width:100%;
+  max-height:20vh;
+}
+
+.weather>.card{
+  display: inline-block;
+}
+.weather>.card>img{
+  width:10vw;
+  height:10vw;
+}

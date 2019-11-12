@@ -23,7 +23,7 @@ app.use(cors({
 app.get('/', (req, res) => res.send("hello"));
 app.get('/meme/latest', (req, res) => {
     var out;
-    db.query('SELECT Id,Type,Url,Date FROM meme WHERE NOT Hidden AND NOT Nsfw ORDER BY Date DESC LIMIT 10', (error, results, fields)=>{
+    db.query('SELECT Id,Type,Url,Date FROM meme LEFT JOIN edge ON meme.id = edge.memeid WHERE NOT Hidden AND NOT Nsfw GROUP BY meme.Id HAVING AVG(edge.Rating)<=1 ORDER BY Date DESC LIMIT 10', (error, results, fields)=>{
         if(error){
             res.json({success:false,msg:"Failed to fetch from database."});
             throw error;
