@@ -158,6 +158,11 @@ class LatestMemes extends React.Component{
 	}
 }
 
+// TODO: Add edit button in meme
+
+// TODO: Add edit form, which is a QR code.
+// eg http://chart.googleapis.com/chart?cht=qr&chs=512x512&chl=https://meme.yiays.com/meme/edit/1001&chld=L|1
+
 class Weather extends React.Component{
 	constructor(){
 		super();
@@ -200,6 +205,12 @@ class Weather extends React.Component{
 		);
 	}
 }
+
+// TODO: Add notification module.
+
+// TODO: Add memedb changes module
+
+//  Pages
 
 function One() {
 	return (
