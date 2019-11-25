@@ -1,7 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Popup from 'reactjs-popup';
 import * as serviceWorker from './serviceWorker';
-import App from './App';
+import './App.css';
+
+function App() {
+  return (
+    <>
+      <div id='pagination'>
+        <span className='one active'></span>
+        <span className='two'></span>
+        <span className='three'></span>
+        <span className='four'></span>
+        <span className='five'></span>
+        {/*<span className='six'></span>
+        <span className='seven'></span>*/}
+      </div>
+      <div className='page one'></div>
+      <div className='page two'></div>
+      <div className='page three'></div>
+      <div className='page four'></div>
+      <div className='page five'></div>
+      {/*<div className='page six'></div>
+      <div className='page seven'></div>*/}
+    </>
+  );
+}
 
 const pagenames={
 	1:'one',
@@ -9,8 +33,8 @@ const pagenames={
 	3:'three',
 	4:'four',
 	5:'five',
-	6:'six',
-	7:'seven'
+	/*6:'six',
+	7:'seven'*/
 }
 const pages={
 	1:<One/>,
@@ -18,8 +42,8 @@ const pages={
 	3:<Three/>,
 	4:<Four/>,
 	5:<Five/>,
-	6:<Six/>,
-	7:<Seven/>
+	/*6:<Six/>,
+	7:<Seven/>*/
 }
 
 var currentPage = 'one';
@@ -139,6 +163,13 @@ class LatestMemes extends React.Component{
 				result.push(
 					<div key={meme.Id}>
 						<article className={"meme "+meme.Type}>
+							<Popup trigger={<button className="edit"><span role="img" aria-label="edit meme">✏️</span></button>} modal closeOnDocumentClick>
+								<p style={{"text-align":"center"}}>
+									In order to edit this meme, open a QR code reader on your device and scan the QR code below!
+									<br/>
+									<img src={"http://chart.googleapis.com/chart?cht=qr&chs=512x512&chl=https://meme.yiays.com/meme/edit/"+meme.Id+"&chld=L|1"} alt="QR code linking to the edit page for this meme"/>
+								</p>
+							</Popup>
 							<TypeRenderer type={meme.Type} url={meme.Url}/>
 						</article>
 						<hr/>
@@ -165,10 +196,9 @@ class LatestMemes extends React.Component{
 	}
 }
 
-// TODO: Add edit button in meme
-
 // TODO: Add edit form, which is a QR code.
 // eg http://chart.googleapis.com/chart?cht=qr&chs=512x512&chl=https://meme.yiays.com/meme/edit/1001&chld=L|1
+
 
 class Weather extends React.Component{
 	constructor(){
@@ -183,7 +213,7 @@ class Weather extends React.Component{
 	componentDidMount(){
 		fetch("https://api.openweathermap.org/data/2.5/forecast?q=Nelson,nz&appid=71e65618a80b5c3d419b2ac804582791")
 		.then(response => response.json())
-		.then(data => {this.setState({hourly: data.list.slice(0,10), loading: false}); })
+		.then(data => {this.setState({hourly: data.list.slice(0,7), loading: false}); })
 		.catch(error => this.setState({error, loading: false}));
 	}
 
@@ -264,7 +294,7 @@ function Five(){
 		</div>
 	);
 }
-function Six(){
+/*function Six(){
 	return(
 		<div>
 			<span className="name"></span>
@@ -277,7 +307,7 @@ function Seven(){
 			<span className="name"></span>
 		</div>
 	);
-}
+}*/
 
 function scrollToPage(pagename,behavior="smooth"){
 	if(['one','two','three','four','five','six','seven'].indexOf(pagename)>=0){
@@ -300,9 +330,9 @@ scrollToPage('one');
 let pageslideshow = true;
 setInterval(function(){
 	if(pageslideshow){
-		var n = ['one','two','three','four','five','six','seven'].indexOf(currentPage)+1;
+		var n = ['one','two','three','four','five'/*,'six','seven'*/].indexOf(currentPage)+1;
 		if(n > 6) n = 0;
-		scrollToPage(['one','two','three','four','five','six','seven'][n]);
+		scrollToPage(['one','two','three','four','five'/*,'six','seven'*/][n]);
 	}else{
 		pageslideshow = true;
 	}

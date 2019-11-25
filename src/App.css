@@ -14,6 +14,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
 #root{
   position: absolute;
   top: 0;
@@ -100,9 +109,9 @@ code {
   padding:0;
   margin:0;
 }
-.page:nth-child(even){
+/*.page:nth-child(even){
   background:rgba(255,255,255,0.2);
-}
+}*/
 .page.two{
   top:-100vh;
   left:100vw;
@@ -197,9 +206,6 @@ code {
 .panel h3{
   margin:0;
 }
-.panel hr{
-  
-}
 .meme-panel>div{
   display:inline-block;
 }
@@ -213,10 +219,33 @@ code {
 }
 .panel .meme{
   max-height:20vh;
+  position: relative;
+  margin-right:0.25em;
 }
-.panel .meme img, .panel .meme video, .panel .meme iframe{
+.panel .meme:hover{
+  cursor: pointer;
+}
+.panel .meme>.edit{
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  font-size: 5vh;
+  transition: 125ms opacity;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);
+}
+.panel .meme:hover>.edit{
+  opacity: 1;
+}
+.meme>img, .meme>video, .meme>iframe{
   max-width:100%;
   max-height:20vh;
+  filter:brightness(100%);
+  transition: 125ms filter;
+}
+.meme:hover>img, .meme:hover>video, .meme:hover>iframe{
+  filter:brightness(50%);
 }
 
 .weather{
