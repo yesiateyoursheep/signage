@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = 8001;
 const cors = require('cors');
 const mysql = require('mysql');
 const db = mysql.createConnection({
@@ -17,7 +17,7 @@ db.connect((error)=>{
 global.db = db;
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'https://signage.yiays.com'
 }));
 
 app.get('/', (req, res) => res.send("hello"));

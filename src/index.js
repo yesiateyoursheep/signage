@@ -150,7 +150,7 @@ class LatestMemes extends React.Component{
 	}
 
 	componentDidMount(){
-		fetch("http://localhost:8080/meme/latest")
+		fetch("/api.php/meme/latest")
 		.then(response => response.json())
 		.then(data => {this.setState({memes: data, loading: false}); })
 		.catch(error => this.setState({error, loading: false}));
